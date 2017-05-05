@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  pbx:
+    image: andrius/alpine-asterisk:14
+    volumes:
+      - ./tests/pbx/sip.conf:/etc/asterisk/sip.conf
+
+  sipp:
+    build: .
+    links:
+      - pbx
